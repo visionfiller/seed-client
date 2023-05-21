@@ -23,3 +23,14 @@ export const getCategories = () => {
     })
         .then(response => response.json())
 }
+
+export const addToCart = (id) => {
+    return fetch(`http://localhost:8000/products/${id}/add_to_cart`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("seed_token")}`
+        }
+    })
+        .then(response => response.json())
+}

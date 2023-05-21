@@ -4,20 +4,20 @@ export const NavBar = () => {
     const navigate = useNavigate()
     return <>
     
-        <ul className="navbar">
-            <li className="navbar__item">
+        <ul className=" flex row justify-evenly">
+            <li className="">
                 <Link to="/mycart">My Cart</Link>
             </li>
-            <li className="navbar__item">
+            <li className="">
                <Link to="/">Home</Link>
             </li>
-            <li className="navbar__item">
+            <li className="">
                 Navigation link
             </li>
             {
                 (localStorage.getItem("seed_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                    <li className="">
+                        <button className=""
                             onClick={() => {
                                 localStorage.removeItem("seed_token")
                                 navigate('/login')
@@ -25,11 +25,11 @@ export const NavBar = () => {
                         >Logout</button>
                     </li> :
                     <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
+                        <li className="">
+                            <Link className="" to="/login">Login</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
+                        <li className="">
+                            <Link className="" to="/register">Register</Link>
                         </li>
                     </>
             }        </ul>
