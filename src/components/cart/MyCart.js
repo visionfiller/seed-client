@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getMyCurrentCart } from "../../managers/CartManager"
+import { ProductDetail } from "../product/ProductDetails"
 
 export const MyCart = () => {
     const [cart, setCart] = useState({})
@@ -9,7 +10,7 @@ export const MyCart = () => {
 
 return <>
 {cart.products ?  cart.products.map((product) => {
-    return <h2>{product.name}</h2>
+    return <ProductDetail product={product}/>
 })
 : ""}
 </>

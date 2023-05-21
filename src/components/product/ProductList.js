@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { getMyCurrentCart } from "../../managers/CartManager"
 import { getCategories, getProducts, getProductsByCategory } from "../../managers/ProductManager"
 import { ProductDetail } from "./ProductDetails"
 
@@ -6,10 +7,11 @@ export const ProductList = () => {
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
     const [option, setOption] = useState("")
+    
     useEffect(()=> {
         getProducts().then((data) => {setProducts(data)})
         getCategories().then((data) => {setCategories(data)})
-
+        
     },[])
 
     useEffect(()=>{
@@ -32,8 +34,10 @@ export const ProductList = () => {
             return <option key ={category.id} value={category.id}>{category.name}</option>
         })}
     </select>
+    <div className="flex row w-full"> 
    {products.map((product) => {
     return <ProductDetail product={product} key={product.id}/>
    })}
+   </div>
     </>
 }
